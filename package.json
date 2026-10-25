@@ -1,0 +1,11 @@
+{
+  "name": "enterprise-system-design-visual-guide",
+  "private": true,
+  "description": "Engineering notes on consistency, coordination, event-driven integration, caching, and failure recovery",
+  "scripts": {
+    "build:reader": "node build_offline.mjs"
+  },
+  "devDependencies": {
+    "marked": "17.0.5"
+  }
+}

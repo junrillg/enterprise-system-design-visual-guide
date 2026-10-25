@@ -1,0 +1,7 @@
+flowchart TD
+    O["Durable activation workflow"] -->|"reserve command"| C["Capacity owner"]
+    C -->|"reservation result"| O
+    O -->|"prepare command"| A["Agreement owner"]
+    A -->|"preparation result"| O
+    O -->|"activate command"| L["Loan owner"]
+    L -->|"activation result"| O

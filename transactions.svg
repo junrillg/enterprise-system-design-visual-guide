@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="890" viewBox="0 0 960 890" role="img" aria-labelledby="title desc">
+<title id="title">Where does the transaction end?</title><desc id="desc">Same business goal; three different coordination boundaries.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="890" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">Where does the transaction end?</text>
+<text x="36" y="82" class="sub" text-anchor="start">Same business goal; three different coordination boundaries.</text>
+<text x="36" y="130" class="boxt" text-anchor="start">1  One local database</text>
+<rect x="70" y="155" width="350" height="100" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="245.0" y="188" class="boxt" text-anchor="middle">Loan + Capacity modules</text>
+<text x="245.0" y="217" class="body" text-anchor="middle">One database transaction</text>
+<rect x="570" y="155" width="320" height="100" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="730.0" y="188" class="boxt" text-anchor="middle">One transactional store</text>
+<text x="730.0" y="217" class="body" text-anchor="middle">Commit both or neither</text>
+<polyline points="420,205 570,205" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<text x="36" y="315" class="boxt" text-anchor="start">2  Two-phase commit</text>
+<rect x="325" y="345" width="310" height="82" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="480.0" y="378" class="boxt" text-anchor="middle">Coordinator</text>
+<text x="480.0" y="407" class="body" text-anchor="middle">Durable decision</text>
+<rect x="70" y="500" width="330" height="100" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="235.0" y="533" class="boxt" text-anchor="middle">Loan database</text>
+<text x="235.0" y="562" class="body" text-anchor="middle">Prepared participant</text>
+<rect x="560" y="500" width="330" height="100" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="725.0" y="533" class="boxt" text-anchor="middle">Capacity database</text>
+<text x="725.0" y="562" class="body" text-anchor="middle">Prepared participant</text>
+<polyline points="325,386 235,386 235,500" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="138.6" y="443" width="172.8" height="25" rx="4" fill="#fff"/>
+<text x="225" y="462" class="label" text-anchor="middle">prepare / decide</text>
+<polyline points="635,386 725,386 725,500" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="648.6" y="443" width="172.8" height="25" rx="4" fill="#fff"/>
+<text x="735" y="462" class="label" text-anchor="middle">prepare / decide</text>
+<text x="480" y="635" class="body" text-anchor="middle">A prepared participant may wait if it cannot learn the decision.</text>
+<text x="36" y="695" class="boxt" text-anchor="start">3  Saga</text>
+<rect x="70" y="720" width="330" height="100" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="235.0" y="753" class="boxt" text-anchor="middle">Reserve capacity</text>
+<text x="235.0" y="782" class="body" text-anchor="middle">Local commit</text>
+<rect x="560" y="720" width="330" height="100" rx="13" fill="#fff3df" stroke="#a76012" stroke-width="2"/>
+<text x="725.0" y="753" class="boxt" text-anchor="middle">Prepare agreement</text>
+<text x="725.0" y="782" class="body" text-anchor="middle">Local commit or failure</text>
+<polyline points="400,750 560,750" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="427.9" y="720" width="104.2" height="25" rx="4" fill="#fff"/>
+<text x="480" y="739" class="label" text-anchor="middle">next step</text>
+<polyline points="560,798 400,798" fill="none" stroke="#af3434" stroke-width="2.5" marker-end="url(#redarr)" stroke-dasharray="7 5"/>
+<rect x="423.0" y="813" width="114.0" height="25" rx="4" fill="#fff"/>
+<text x="480" y="832" class="label" text-anchor="middle">compensate</text>
+</svg>

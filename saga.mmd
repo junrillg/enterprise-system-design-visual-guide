@@ -1,0 +1,7 @@
+flowchart TD
+    R["Reserve R123: local commit"] --> A["Prepare agreement"]
+    A -->|"success"| V["Validate prerequisites and activate"]
+    A -->|"definitive failure"| X["Release R123: compensation"]
+    X -->|"success"| C["Cancelled"]
+    X -->|"failure"| M["Compensating or manual review"]
+    M -->|"safe retry"| X

@@ -1,0 +1,8 @@
+flowchart TD
+    A["API instance A"] --> C["Shared cache: tenant-scoped indicative products"]
+    B["API instance B"] --> C
+    C -->|"hit"| H["Return permitted cached view"]
+    C -->|"miss: API fetches"| D["Authoritative catalog"]
+    D --> F["API fills cache with expiry"]
+    F --> C
+    W["Binding offer acceptance and capacity reservation"] -->|"must validate"| D

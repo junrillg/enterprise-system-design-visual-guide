@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="685" viewBox="0 0 960 685" role="img" aria-labelledby="title desc">
+<title id="title">Fast shared reads, authoritative decisions</title><desc id="desc">Cache indicative products; validate binding terms and scarce capacity.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="685" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">Fast shared reads, authoritative decisions</text>
+<text x="36" y="82" class="sub" text-anchor="start">Cache indicative products; validate binding terms and scarce capacity.</text>
+<rect x="36" y="145" width="270" height="100" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="171.0" y="178" class="boxt" text-anchor="middle">API instance A</text>
+<text x="171.0" y="207" class="body" text-anchor="middle">Same cache key policy</text>
+<rect x="36" y="305" width="270" height="100" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="171.0" y="338" class="boxt" text-anchor="middle">API instance B</text>
+<text x="171.0" y="367" class="body" text-anchor="middle">Tenant-scoped requests</text>
+<rect x="510" y="195" width="414" height="120" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="717.0" y="228" class="boxt" text-anchor="middle">Shared cache</text>
+<text x="717.0" y="257" class="body" text-anchor="middle">Hit: return indicative products</text>
+<text x="717.0" y="282" class="body" text-anchor="middle">Miss: API loads the catalog</text>
+<rect x="510" y="470" width="414" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="717.0" y="503" class="boxt" text-anchor="middle">Authoritative database</text>
+<text x="717.0" y="532" class="body" text-anchor="middle">Committed product / offer versions</text>
+<text x="717.0" y="557" class="body" text-anchor="middle">Capacity reservation is decided here</text>
+<polyline points="306,195 410,195 410,235 510,235" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="370.6" y="156" width="74.80000000000001" height="25" rx="4" fill="#fff"/>
+<text x="408" y="175" class="label" text-anchor="middle">lookup</text>
+<polyline points="306,355 410,355 410,275 510,275" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<polyline points="717,315 717,470" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="606.1" y="378" width="221.8" height="25" rx="4" fill="#fff"/>
+<text x="717" y="397" class="label" text-anchor="middle">on miss: API loads DB</text>
+<rect x="36" y="605" width="888" height="42" rx="13" fill="#f1f4f8" stroke="#536478" stroke-width="2"/>
+<text x="480.0" y="638" class="boxt" text-anchor="middle"></text>
+<text x="58" y="635" class="body" text-anchor="start">Expiry + invalidation reduce staleness; they do not create a global transaction.</text>
+</svg>

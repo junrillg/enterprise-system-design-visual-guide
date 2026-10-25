@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="610" viewBox="0 0 960 610" role="img" aria-labelledby="title desc">
+<title id="title">A committed row change reaches search</title><desc id="desc">CDC exposes changes; a consumer applies them to a target.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="610" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">A committed row change reaches search</text>
+<text x="36" y="82" class="sub" text-anchor="start">CDC exposes changes; a consumer applies them to a target.</text>
+<rect x="36" y="165" width="264" height="125" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="168.0" y="198" class="boxt" text-anchor="middle">Legacy database</text>
+<text x="168.0" y="227" class="body" text-anchor="middle">Loan status commits</text>
+<text x="168.0" y="252" class="body" text-anchor="middle">Source of truth</text>
+<rect x="348" y="165" width="264" height="125" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="480.0" y="198" class="boxt" text-anchor="middle">Capture + position</text>
+<text x="480.0" y="227" class="body" text-anchor="middle">Log / change tables</text>
+<text x="480.0" y="252" class="body" text-anchor="middle">Resume from checkpoint</text>
+<rect x="660" y="165" width="264" height="125" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="792.0" y="198" class="boxt" text-anchor="middle">Indexer</text>
+<text x="792.0" y="227" class="body" text-anchor="middle">Upsert / delete</text>
+<text x="792.0" y="252" class="body" text-anchor="middle">Handle duplicate delivery</text>
+<polyline points="300,228 348,228" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<polyline points="612,228 660,228" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="660" y="395" width="264" height="100" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="792.0" y="428" class="boxt" text-anchor="middle">Search view</text>
+<text x="792.0" y="457" class="body" text-anchor="middle">Eventually updated</text>
+<polyline points="792,290 792,395" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="801.2" y="332" width="133.60000000000002" height="25" rx="4" fill="#fff"/>
+<text x="868" y="351" class="label" text-anchor="middle">apply change</text>
+<rect x="36" y="395" width="500" height="100" rx="13" fill="#fff3df" stroke="#a76012" stroke-width="2"/>
+<text x="286.0" y="428" class="boxt" text-anchor="middle">Initial snapshot + stream handoff</text>
+<text x="286.0" y="457" class="body" text-anchor="middle">Must avoid gaps while copying existing rows</text>
+<rect x="36" y="520" width="888" height="67" rx="13" fill="#f1f4f8" stroke="#536478" stroke-width="2"/>
+<text x="480.0" y="553" class="boxt" text-anchor="middle"></text>
+<text x="58" y="550" class="body" text-anchor="start">Raw CDC describes committed storage changes.</text>
+<text x="58" y="575" class="body" text-anchor="start">Capturing an outbox can carry deliberate business meaning.</text>
+</svg>

@@ -1,0 +1,9 @@
+flowchart TD
+    A["Accept a loan offer"] --> B["Coordinate required work"]
+    B --> T["Transactions: define boundaries"]
+    B --> S["Saga: recover partial work"]
+    B --> C["Coordination: decide next steps"]
+    A --> E["Event sourcing: optional authoritative history"]
+    A --> D["CDC: propagate committed changes"]
+    A --> K["Cache: speed indicative reads"]
+    P["CAP: define behavior during a partition"] -.-> T

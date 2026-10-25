@@ -1,0 +1,6 @@
+flowchart TD
+    L["Loan publishes OfferAccepted"] --> C["Capacity reserves R123"]
+    C -->|"CapacityReserved"| A["Agreements prepares draft"]
+    A -->|"preparation failed"| X["Capacity subscriber releases R123"]
+    A -->|"AgreementPrepared"| V["Loan subscriber evaluates activation"]
+    X --> R["Publish recovery result; reconcile if needed"]

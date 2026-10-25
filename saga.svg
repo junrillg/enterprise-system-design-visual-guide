@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="790" viewBox="0 0 960 790" role="img" aria-labelledby="title desc">
+<title id="title">The failure path is part of the design</title><desc id="desc">Agreement failure does not erase a committed reservation.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="790" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">The failure path is part of the design</text>
+<text x="36" y="82" class="sub" text-anchor="start">Agreement failure does not erase a committed reservation.</text>
+<rect x="300" y="135" width="360" height="100" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="480.0" y="168" class="boxt" text-anchor="middle">Reserve capacity</text>
+<text x="480.0" y="197" class="body" text-anchor="middle">Reservation R123 committed</text>
+<rect x="300" y="305" width="360" height="100" rx="13" fill="#fff3df" stroke="#a76012" stroke-width="2"/>
+<text x="480.0" y="338" class="boxt" text-anchor="middle">Prepare agreement</text>
+<text x="480.0" y="367" class="body" text-anchor="middle">Rejected: invalid input</text>
+<polyline points="480,235 480,305" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="544.2" y="255" width="133.60000000000002" height="25" rx="4" fill="#fff"/>
+<text x="611" y="274" class="label" text-anchor="middle">forward work</text>
+<rect x="300" y="485" width="360" height="100" rx="13" fill="#fff0ef" stroke="#af3434" stroke-width="2"/>
+<text x="480.0" y="518" class="boxt" text-anchor="middle">Release R123</text>
+<text x="480.0" y="547" class="body" text-anchor="middle">New local transaction</text>
+<polyline points="480,405 480,485" fill="none" stroke="#af3434" stroke-width="2.5" marker-end="url(#redarr)"/>
+<rect x="543.0" y="432" width="114.0" height="25" rx="4" fill="#fff"/>
+<text x="600" y="451" class="label" text-anchor="middle">compensate</text>
+<rect x="36" y="650" width="360" height="85" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="216.0" y="683" class="boxt" text-anchor="middle">Cancelled</text>
+<text x="216.0" y="712" class="body" text-anchor="middle">Release confirmed</text>
+<rect x="564" y="650" width="360" height="85" rx="13" fill="#fff3df" stroke="#a76012" stroke-width="2"/>
+<text x="744.0" y="683" class="boxt" text-anchor="middle">Compensating / review</text>
+<text x="744.0" y="712" class="body" text-anchor="middle">Release failed; retain recovery state</text>
+<polyline points="380,585 380,615 216,615 216,650" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="206.7" y="584" width="84.60000000000001" height="25" rx="4" fill="#fff"/>
+<text x="249" y="603" class="label" text-anchor="middle">success</text>
+<polyline points="580,585 580,615 744,615 744,650" fill="none" stroke="#af3434" stroke-width="2.5" marker-end="url(#redarr)"/>
+<rect x="695.7" y="584" width="84.60000000000001" height="25" rx="4" fill="#fff"/>
+<text x="738" y="603" class="label" text-anchor="middle">failure</text>
+<text x="480" y="768" class="body" text-anchor="middle">Never report completed cancellation while the reservation is still held.</text>
+</svg>

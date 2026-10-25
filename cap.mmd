@@ -1,0 +1,8 @@
+flowchart TD
+    P["Network partition; last known capacity is 100"] --> A["Client A asks for 80"]
+    P --> B["Client B asks for 80"]
+    A --> U["Both independently accept: 160 reserved"]
+    B --> U
+    P --> C["Alternative: authoritative owner or quorum decides"]
+    C --> D["Isolated side defers or rejects"]
+    D --> G["Preserve invariant; lose availability for affected requests"]

@@ -1,0 +1,12 @@
+flowchart TD
+    subgraph Local["One transactional boundary"]
+        M["Loan and Capacity modules"] --> DB["One database commit"]
+    end
+    subgraph TwoPC["Two-phase commit"]
+        C["Coordinator: prepare then durable decision"] --> L["Loan prepared participant"]
+        C --> P["Capacity prepared participant"]
+    end
+    subgraph Saga["Local commits and business recovery"]
+        R["Reserve capacity: committed"] --> A["Prepare agreement"]
+        A -->|"failure"| X["Release the reservation: new transaction"]
+    end

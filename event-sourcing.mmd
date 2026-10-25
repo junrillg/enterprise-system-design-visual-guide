@@ -1,0 +1,6 @@
+flowchart TD
+    C["AcceptOffer: validate state"] -->|"append with expected version"| E["Authoritative Loan event stream"]
+    E -->|"replay"| S["Rehydrated Loan state"]
+    S -->|"next command uses state"| C
+    E -->|"project"| P["Dashboard read model: may lag"]
+    N["Snapshot: derived state at a stream version"] -.-> S

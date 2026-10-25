@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="900" viewBox="0 0 960 900" role="img" aria-labelledby="title desc">
+<title id="title">Sample transaction flow and reliability boundaries</title><desc id="desc">Base design: current-state tables + reliable events. Event sourcing is optional.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="900" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">Sample transaction flow and reliability boundaries</text>
+<text x="36" y="82" class="sub" text-anchor="start">Base design: current-state tables + reliable events. Event sourcing is optional.</text>
+<rect x="36" y="145" width="264" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="168.0" y="178" class="boxt" text-anchor="middle">AcceptOffer API</text>
+<text x="168.0" y="207" class="body" text-anchor="middle">Authorize tenant</text>
+<text x="168.0" y="232" class="body" text-anchor="middle">Validate offer + request key</text>
+<rect x="348" y="145" width="264" height="110" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="480.0" y="178" class="boxt" text-anchor="middle">Loan local commit</text>
+<text x="480.0" y="207" class="body" text-anchor="middle">Acceptance + outbox</text>
+<text x="480.0" y="232" class="body" text-anchor="middle">Atomic request result</text>
+<rect x="660" y="145" width="264" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="792.0" y="178" class="boxt" text-anchor="middle">Relay + workflow</text>
+<text x="792.0" y="207" class="body" text-anchor="middle">Deduplicate start</text>
+<text x="792.0" y="232" class="body" text-anchor="middle">Persist progress</text>
+<polyline points="300,200 348,200" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<polyline points="612,200 660,200" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="660" y="375" width="264" height="110" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="792.0" y="408" class="boxt" text-anchor="middle">Activation saga</text>
+<text x="792.0" y="437" class="body" text-anchor="middle">Reserve capacity</text>
+<text x="792.0" y="462" class="body" text-anchor="middle">Prepare agreement / activate</text>
+<polyline points="792,255 792,375" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="720.3" y="303" width="143.4" height="25" rx="4" fill="#fff"/>
+<text x="792" y="322" class="label" text-anchor="middle">required work</text>
+<rect x="348" y="375" width="264" height="110" rx="13" fill="#fff0ef" stroke="#af3434" stroke-width="2"/>
+<text x="480.0" y="408" class="boxt" text-anchor="middle">Failure recovery</text>
+<text x="480.0" y="437" class="body" text-anchor="middle">Release reservation</text>
+<text x="480.0" y="462" class="body" text-anchor="middle">Retry or manual review</text>
+<polyline points="660,430 612,430" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="36" y="375" width="264" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="168.0" y="408" class="boxt" text-anchor="middle">Capacity owner</text>
+<text x="168.0" y="437" class="body" text-anchor="middle">Conditional reservation</text>
+<text x="168.0" y="462" class="body" text-anchor="middle">Never trust a cached count</text>
+<polyline points="660,470 636,470 636,535 168,535 168,485" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="333.5" y="540" width="163.0" height="25" rx="4" fill="#fff"/>
+<text x="415" y="559" class="label" text-anchor="middle">local invariant</text>
+<rect x="36" y="665" width="264" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="168.0" y="698" class="boxt" text-anchor="middle">Indicative products</text>
+<text x="168.0" y="727" class="body" text-anchor="middle">Shared cache</text>
+<text x="168.0" y="752" class="body" text-anchor="middle">No binding decisions</text>
+<rect x="348" y="665" width="264" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="480.0" y="698" class="boxt" text-anchor="middle">History, optional</text>
+<text x="480.0" y="727" class="body" text-anchor="middle">Event-sourced Loan</text>
+<text x="480.0" y="752" class="body" text-anchor="middle">Rebuild state safely</text>
+<rect x="660" y="665" width="264" height="110" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="792.0" y="698" class="boxt" text-anchor="middle">Search + reporting</text>
+<text x="792.0" y="727" class="body" text-anchor="middle">CDC / committed events</text>
+<text x="792.0" y="752" class="body" text-anchor="middle">Eventual projection</text>
+<polyline points="792,485 792,665" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="686.0" y="576" width="212.0" height="25" rx="4" fill="#fff"/>
+<text x="792" y="595" class="label" text-anchor="middle">after committed work</text>
+<rect x="36" y="805" width="888" height="42" rx="13" fill="#f1f4f8" stroke="#536478" stroke-width="2"/>
+<text x="480.0" y="838" class="boxt" text-anchor="middle"></text>
+<text x="58" y="835" class="body" text-anchor="start">CAP policy: defer authoritative writes when coordination cannot be established.</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" role="img" aria-labelledby="title desc">
+<title id="title">Outbox saves intent; inbox protects the local effect</title><desc id="desc">Two separate crash windows need two separate solutions.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="760" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">Outbox saves intent; inbox protects the local effect</text>
+<text x="36" y="82" class="sub" text-anchor="start">Two separate crash windows need two separate solutions.</text>
+<rect x="36" y="145" width="370" height="140" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="221.0" y="178" class="boxt" text-anchor="middle">One source transaction</text>
+<text x="221.0" y="207" class="body" text-anchor="middle">Loan acceptance</text>
+<text x="221.0" y="232" class="body" text-anchor="middle">+ outgoing event E123</text>
+<text x="221.0" y="257" class="body" text-anchor="middle">Commit both together</text>
+<rect x="570" y="145" width="354" height="140" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="747.0" y="178" class="boxt" text-anchor="middle">Relay / broker</text>
+<text x="747.0" y="207" class="body" text-anchor="middle">Publish E123</text>
+<text x="747.0" y="232" class="body" text-anchor="middle">May publish it again</text>
+<polyline points="406,215 570,215" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="419.2" y="176" width="133.60000000000002" height="25" rx="4" fill="#fff"/>
+<text x="486" y="195" class="label" text-anchor="middle">after commit</text>
+<rect x="570" y="425" width="354" height="150" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="747.0" y="458" class="boxt" text-anchor="middle">One consumer transaction</text>
+<text x="747.0" y="487" class="body" text-anchor="middle">Claim E123 for this handler</text>
+<text x="747.0" y="512" class="body" text-anchor="middle">+ local business mutation</text>
+<text x="747.0" y="537" class="body" text-anchor="middle">Commit before acknowledgment</text>
+<polyline points="747,285 747,425" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="645.9" y="344" width="202.20000000000002" height="25" rx="4" fill="#fff"/>
+<text x="747" y="363" class="label" text-anchor="middle">deliver / redeliver</text>
+<rect x="36" y="425" width="370" height="150" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="221.0" y="458" class="boxt" text-anchor="middle">Consumer crash cases</text>
+<text x="221.0" y="487" class="body" text-anchor="middle">Before commit: retry all</text>
+<text x="221.0" y="512" class="body" text-anchor="middle">After commit: inbox suppresses</text>
+<text x="221.0" y="537" class="body" text-anchor="middle">the repeated local effect</text>
+<rect x="36" y="625" width="888" height="67" rx="13" fill="#f1f4f8" stroke="#536478" stroke-width="2"/>
+<text x="480.0" y="658" class="boxt" text-anchor="middle"></text>
+<text x="58" y="655" class="body" text-anchor="start">An external lender API is outside the consumer database transaction.</text>
+<text x="58" y="680" class="body" text-anchor="start">Use provider idempotency plus durable intent and outcome reconciliation.</text>
+</svg>

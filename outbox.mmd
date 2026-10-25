@@ -1,0 +1,6 @@
+flowchart TD
+    A["One source transaction: Loan acceptance plus event E123"] --> R["Relay publishes committed E123"]
+    R --> B["Broker can redeliver"]
+    B --> I["One consumer transaction: inbox claim plus local effect"]
+    I --> K["Commit before acknowledgment"]
+    X["External provider effect"] -.-> P["Provider idempotency plus durable intent and reconciliation"]

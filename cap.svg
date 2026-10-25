@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="780" viewBox="0 0 960 780" role="img" aria-labelledby="title desc">
+<title id="title">A network split forces a decision</title><desc id="desc">Capacity was 100. Two isolated sides each receive a request for 80.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="780" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">A network split forces a decision</text>
+<text x="36" y="82" class="sub" text-anchor="start">Capacity was 100. Two isolated sides each receive a request for 80.</text>
+<rect x="36" y="155" width="360" height="120" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="216.0" y="188" class="boxt" text-anchor="middle">Side A</text>
+<text x="216.0" y="217" class="body" text-anchor="middle">Last known capacity: 100</text>
+<text x="216.0" y="242" class="body" text-anchor="middle">Client asks to reserve 80</text>
+<rect x="564" y="155" width="360" height="120" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="744.0" y="188" class="boxt" text-anchor="middle">Side B</text>
+<text x="744.0" y="217" class="body" text-anchor="middle">Last known capacity: 100</text>
+<text x="744.0" y="242" class="body" text-anchor="middle">Client asks to reserve 80</text>
+<polyline points="396,215 564,215" fill="none" stroke="#af3434" stroke-width="2.5" marker-end="url(#redarr)" stroke-dasharray="7 5"/>
+<rect x="393.6" y="176" width="172.8" height="25" rx="4" fill="#fff"/>
+<text x="480" y="195" class="label" text-anchor="middle">link unavailable</text>
+<text x="36" y="347" class="boxt" text-anchor="start">If both independently accept</text>
+<rect x="36" y="375" width="888" height="100" rx="13" fill="#fff0ef" stroke="#af3434" stroke-width="2"/>
+<text x="480.0" y="408" class="boxt" text-anchor="middle">80 + 80 = 160 reserved</text>
+<text x="480.0" y="437" class="body" text-anchor="middle">Unsafe without preallocated independent reservation rights</text>
+<text x="36" y="547" class="boxt" text-anchor="start">One correctness-preserving policy</text>
+<rect x="36" y="575" width="420" height="100" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="246.0" y="608" class="boxt" text-anchor="middle">Authoritative side</text>
+<text x="246.0" y="637" class="body" text-anchor="middle">May accept within available capacity</text>
+<rect x="504" y="575" width="420" height="100" rx="13" fill="#fff3df" stroke="#a76012" stroke-width="2"/>
+<text x="714.0" y="608" class="boxt" text-anchor="middle">Isolated side</text>
+<text x="714.0" y="637" class="body" text-anchor="middle">Defer or reject the reservation</text>
+<rect x="36" y="695" width="888" height="42" rx="13" fill="#f1f4f8" stroke="#536478" stroke-width="2"/>
+<text x="480.0" y="728" class="boxt" text-anchor="middle"></text>
+<text x="58" y="725" class="body" text-anchor="start">Preserve the rule, but some requests lose availability during the partition.</text>
+</svg>

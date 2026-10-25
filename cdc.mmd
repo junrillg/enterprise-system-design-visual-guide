@@ -1,0 +1,5 @@
+flowchart TD
+    D["Legacy database: committed changes"] --> C["Capture mechanism and checkpoint"]
+    C --> I["Indexer: upsert or delete safely"]
+    I --> S["Search: eventually updated"]
+    B["Existing rows: consistent snapshot plus handoff"] -.-> C

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="680" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+<title id="title">Events as the source of truth</title><desc id="desc">Current state and read models are derived from the loan stream.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#536478"/></marker><marker id="redarr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#af3434"/></marker></defs>
+<rect width="960" height="680" rx="20" fill="#fff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .head{font-size:29px;font-weight:700;fill:#15324f}.sub{font-size:19px;fill:#536478}.boxt{font-size:23px;font-weight:700;fill:#15324f}.body{font-size:19px;fill:#33495d}.label{font-size:18px;fill:#536478}.foot{font-size:18px;fill:#536478}</style>
+<text x="36" y="49" class="head" text-anchor="start">Events as the source of truth</text>
+<text x="36" y="82" class="sub" text-anchor="start">Current state and read models are derived from the loan stream.</text>
+<rect x="36" y="145" width="275" height="115" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="173.5" y="178" class="boxt" text-anchor="middle">AcceptOffer command</text>
+<text x="173.5" y="207" class="body" text-anchor="middle">Validate current state</text>
+<text x="173.5" y="232" class="body" text-anchor="middle">Append at expected version</text>
+<rect x="510" y="125" width="414" height="205" rx="13" fill="#e7f7f1" stroke="#137562" stroke-width="2"/>
+<text x="717.0" y="158" class="boxt" text-anchor="middle">Loan event stream</text>
+<text x="717.0" y="187" class="body" text-anchor="middle">v1  OfferAccepted</text>
+<text x="717.0" y="212" class="body" text-anchor="middle">v2  CapacityReserved</text>
+<text x="717.0" y="237" class="body" text-anchor="middle">v3  AgreementPrepared</text>
+<text x="717.0" y="262" class="body" text-anchor="middle">v4  LoanActivated</text>
+<polyline points="311,200 510,200" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="338.3" y="164" width="143.4" height="25" rx="4" fill="#fff"/>
+<text x="410" y="183" class="label" text-anchor="middle">atomic append</text>
+<rect x="36" y="425" width="375" height="115" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="223.5" y="458" class="boxt" text-anchor="middle">Rehydrated loan</text>
+<text x="223.5" y="487" class="body" text-anchor="middle">Apply ordered facts</text>
+<text x="223.5" y="512" class="body" text-anchor="middle">Used to validate a command</text>
+<rect x="549" y="425" width="375" height="115" rx="13" fill="#edf4ff" stroke="#245b9e" stroke-width="2"/>
+<text x="736.5" y="458" class="boxt" text-anchor="middle">Dashboard projection</text>
+<text x="736.5" y="487" class="body" text-anchor="middle">Query-friendly view</text>
+<text x="736.5" y="512" class="body" text-anchor="middle">May lag behind the stream</text>
+<polyline points="615,330 615,373 224,373 224,425" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="325.6" y="342" width="74.80000000000001" height="25" rx="4" fill="#fff"/>
+<text x="363" y="361" class="label" text-anchor="middle">replay</text>
+<polyline points="737,330 737,425" fill="none" stroke="#536478" stroke-width="2.5" marker-end="url(#arr)"/>
+<rect x="757.7" y="365" width="84.60000000000001" height="25" rx="4" fill="#fff"/>
+<text x="800" y="384" class="label" text-anchor="middle">project</text>
+<rect x="36" y="575" width="888" height="67" rx="13" fill="#f1f4f8" stroke="#536478" stroke-width="2"/>
+<text x="480.0" y="608" class="boxt" text-anchor="middle"></text>
+<text x="58" y="605" class="body" text-anchor="start">Snapshot = saved derived state at a stream version.</text>
+<text x="58" y="630" class="body" text-anchor="start">Rebuilds must not repeat emails or external money movements.</text>
+</svg>

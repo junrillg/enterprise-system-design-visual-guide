@@ -1,0 +1,9 @@
+flowchart TD
+    A["AcceptOffer: authorize tenant and validate offer"] --> T["Commit acceptance, request result and outbox"]
+    T --> R["Relay and deduplicated workflow start"]
+    R --> O["Activation saga"]
+    O --> C["Capacity owner enforces reservation rule"]
+    O --> G["Agreement owner prepares draft"]
+    O --> L["Loan owner validates activation"]
+    G -->|"failure"| X["Compensate or reconcile"]
+    L --> E["Committed events update search and reporting"]
